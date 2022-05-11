@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
-import styled from 'styled-components'
-import {Splide, SplideSlide} from '@splidejs/react-splide'
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+import {Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 
@@ -46,11 +47,13 @@ const Veggie = () => {
       {veggie.map((recipe)=>{
           return(
             <SplideSlide key={recipe.id}>
-              <Card>
-                <p>{recipe.title}</p>
-                <img src={recipe.image} alt={recipe.title} />
-                <Gradient />
-              </Card>
+              <Link to={`/recipe/${recipe.id}`}>
+                <Card>
+                  <p>{recipe.title}</p>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <Gradient />
+                </Card>
+              </Link>
               </SplideSlide>
           )
 
